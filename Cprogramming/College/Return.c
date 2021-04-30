@@ -7,9 +7,9 @@ int main()
     printf("Enter the second integer: ");
     scanf("%d", &b);
     mult=multiply(a,b);
-    //printf("The mulitplication is: %d", mult);
+    printf("The mulitplication is: %d", mult);
 
-    return 0;
+    //return 0;
 }
 
 int multiply(int a, int b)
