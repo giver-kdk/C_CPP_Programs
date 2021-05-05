@@ -40,13 +40,13 @@ void main()
 
 
     printf("\nEnter the unsigned short integer priciple: ");
-    scanf("%u", &p4);
+    scanf("%hu", &p4);
     printf("Enter the unsigned short integer time: ");
-    scanf("%u", &t4);
+    scanf("%hu", &t4);
     printf("Enter the unsigned short integer rate: ");
-    scanf("%u", &r4);
+    scanf("%hu", &r4);
     SI4= p4*t4*r4/100;
-    printf("The unsigned short Simple Interest is: %u", SI4);
+    printf("The unsigned short Simple Interest is: %hu", SI4);
 
 
     printf("\nEnter the long integer priciple: ");
