@@ -7,11 +7,11 @@ void main()
 {
     int max=6, min=1, num, start;
     srand(time(0));
+    num= (rand() %(max-min+1))+ min;
     printf("Enter 1 to roll the Dice!!!");
     scanf("%d", &start);
     while (start==1)
     {
-        num= (rand() %(max-min+1))+ min;
         printf("\n\t------The Dice showed %d-------", num);
         printf("\n\n\nEnter 1 to roll the Dice!!!");
         scanf("%d", &start);
