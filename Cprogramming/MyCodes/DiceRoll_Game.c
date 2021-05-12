@@ -3,20 +3,24 @@
 #include <stdlib.h>
 #include <time.h>
 
-void main()
+int main()
 {
-    int max=6, min=1, num, start;
+    int max=6, min=1, num;
+    char play;
     srand(time(0));
     num= (rand() %(max-min+1))+ min;
-    printf("Enter 1 to roll the Dice!!!");
-    scanf("%d", &start);
-    while (start==1)
+
+    printf("Press 'P' to roll the Dice!!!:  ");
+    play= getch();
+    while (play=='p')
     {
+        num= (rand() %(max-min+1))+ min;
         printf("\n\t------The Dice showed %d-------", num);
-        printf("\n\n\nEnter 1 to roll the Dice!!!");
-        scanf("%d", &start);
+        printf("\n\n\nPress 'P' to roll the Dice Again!!!:  ");
+        play= getch();
+    
         }
-    printf("See You Soon!!!");
+    printf("\n\t------See You Soon------!!!");
     getche();
 }
 
