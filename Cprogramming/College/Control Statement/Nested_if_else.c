@@ -17,7 +17,7 @@ void main()
         {
             printf("a is the largest number");
         }
-        else                    // if a>b==False, then this statement runs
+        else                    // if a>c==False, then this statement runs
         {
             printf("c is the largest number");
         }
