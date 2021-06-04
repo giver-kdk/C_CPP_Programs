@@ -16,5 +16,6 @@ void main()
     printf("\nfloor(4.3)= %f", floor(4.3));         //Shows lower integer value of 4.3 (i.e; 4)
     printf("\nround(3.6)= %f", round(3.6));         //Rounds off the float number
     printf("\ntruncate(3.6)= %f", trunc(3.6));     //Truncates(removes) unwanted decimal point & shows integer part
-
+    printf("\nabsolute(-3.6)= %f", fabs(-3.6));     //Gives absolute value for float
+                            //'abs()' is used to find absolute of integer(It belongs to 'stdlib.h' library)
 }

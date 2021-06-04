@@ -10,4 +10,6 @@ void main(){
         printf("Input number is negative.");
     }
     printf("\nDo one thing at a time.");
+    getch();
+
 }

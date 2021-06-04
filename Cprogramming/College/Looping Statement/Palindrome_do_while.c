@@ -10,7 +10,7 @@ int main()
     scanf("%d", &n);
     t=n;
     do{
-        r=n%10;         //Remainder saves the last digit of number
+        r=n%10;        //Remainder saves the last digit of number
         reverse=reverse*10+r;  //Adds up the remainder with reverse's 10th multiple 
                                 //which gives to give reverse form of entered number after completing loop
         n=n/10;

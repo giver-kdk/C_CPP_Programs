@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <conio.h>
 
 int main()
 {
@@ -12,5 +13,6 @@ int main()
        }
        printf(" and ");
     }
+
 }
 /*Here, 'break' statement is acting like if there was 'else' statement*/

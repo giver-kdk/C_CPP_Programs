@@ -33,4 +33,6 @@ void main()
             printf("c is the largest number");
         }
     }
+    getch();
+
 }

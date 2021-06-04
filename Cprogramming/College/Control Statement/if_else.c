@@ -18,4 +18,6 @@ void main()
         printf("Entered number is odd");
     }
     printf("\nGoodBye");
+    getch();
+
 }

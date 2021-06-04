@@ -24,4 +24,6 @@ void main()
     {
         printf("Fail");
     }
+    getch();
+
 }

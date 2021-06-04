@@ -22,4 +22,6 @@ int main()
     {
         printf("Entered number is negative.");
     }
+    getch();
+
 }

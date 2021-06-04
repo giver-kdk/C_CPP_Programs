@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/*This program prints Upper Triangular Pyramid*/
 int main()
 {
     int i, j, k;

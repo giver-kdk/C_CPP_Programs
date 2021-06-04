@@ -59,5 +59,6 @@ void main()
         printf("\nStatus: Fail");
     }
     
+    getch();
 
 }

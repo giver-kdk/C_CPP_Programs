@@ -16,4 +16,6 @@ void main()
         printf("Entered number is negative");
     }
     printf("\nGoodBye");                    // final statement independent of if_else conditions
+    getch();
+
 }

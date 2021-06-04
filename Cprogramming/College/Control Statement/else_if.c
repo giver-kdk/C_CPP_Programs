@@ -26,4 +26,6 @@ void main()
     {
         printf("All numbers are equal!");
     }
+    getch();
+
 }

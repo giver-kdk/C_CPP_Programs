@@ -32,4 +32,6 @@ void main()
             }
         }
     }
+    getch();
+
 }

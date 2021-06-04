@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <math.h>
-
-/*This program checks whether a multidigit number is Armstrong Number or not except 153.*/
-int main()
+	for(j=0;j<m;j++)
+		{
+		printf("%d\t",a[j][i]);
+		}

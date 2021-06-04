@@ -22,4 +22,6 @@ void main()
     {
         printf("Special Character");
     }
+    getch();
+
 }

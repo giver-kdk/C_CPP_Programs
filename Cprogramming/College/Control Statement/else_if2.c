@@ -20,4 +20,6 @@ void main()
         printf("Entered number is negative");
     }
     printf("\nGoodBye"); 
+    getch();
+
 }
