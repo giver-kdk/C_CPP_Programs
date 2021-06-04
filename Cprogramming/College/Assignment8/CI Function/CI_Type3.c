@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include <math.h>
 
-/*Compound Interest function with no return type and with no argument*/
-void find_compoundinterest();
+/*Compound Interest function with no return type and with argument*/
+float find_compoundinterest();
 
 void main()
 {
-    find_compoundinterest();
+    float compoundinterest;
+    compoundinterest= find_compoundinterest();
+    printf("Compound Interest is %.3f", compoundinterest);
 }
-void find_compoundinterest()
+float find_compoundinterest()
 {
     int p, t;
     float r, CI;                        //'rate' in float.
@@ -19,5 +21,5 @@ void find_compoundinterest()
     printf("Enter the rate: ");
     scanf("%f", &r);
     CI= p*(pow(1+r/100, t)-1);
-    printf("Compound Interest is %.3f", CI);
+    return(CI);
 }
