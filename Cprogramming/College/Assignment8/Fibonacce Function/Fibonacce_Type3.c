@@ -7,7 +7,7 @@ void main()
 {
     int previous;
     previous= print_fibonacce();
-    printf("%d", print_fibonacce);
+    printf("%d", print_fibonacce());
  
 }
 int print_fibonacce()
@@ -16,11 +16,11 @@ int print_fibonacce()
     printf("Enter a number for Fibonacce Series: ");
     scanf("%d", &num);
     printf("%d\t", prev);
-    for(i=1; next<=num; i++)
+    for(i=1; i<=num; i++)
     {
         fib1=prev+next;
         prev= next;
         next= fib1;
-        return(prev);
+        return(prev)                
     }
-}
+}       /* INCOMPLETE */

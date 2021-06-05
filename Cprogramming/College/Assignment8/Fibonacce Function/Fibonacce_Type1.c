@@ -13,7 +13,7 @@ void print_fibonacce()
     printf("Enter a number for Fibonacce Series: ");
     scanf("%d", &num);
     printf("%d\t", prev);
-    for(i=1; next<=num; i++)
+    for(i=1; i<=num; i++)
     {
         fib1=prev+next;
         prev= next;

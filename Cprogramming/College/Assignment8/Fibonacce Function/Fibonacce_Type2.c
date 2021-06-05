@@ -14,7 +14,7 @@ void print_fibonacce(int num)
 {
     int i, prev=1, next=1, fib1;
     printf("%d\t", prev);
-    for(i=1; next<=num; i++)
+    for(i=1; i<=num; i++)
     {
         fib1=prev+next;
         prev= next;
