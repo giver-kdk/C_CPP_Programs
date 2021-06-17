@@ -9,15 +9,15 @@ void main()
 }
 void print_fibonacce()
 {
-    int i, num, prev=1, next=1, fib1;
+    int i, num, prev=0, next=1, fib1;
     printf("Enter a number for Fibonacce Series: ");
     scanf("%d", &num);
-    printf("%d\t", prev);
     for(i=1; i<=num; i++)
     {
+        printf("%d\t", prev);
         fib1=prev+next;
         prev= next;
         next= fib1;
-        printf("%d\t", prev);
+        
     }
 }
