@@ -8,8 +8,8 @@ int main()
     scanf("%d", &n);
 
     do{
-        c= a+b;
         printf("%d\t", a);
+        c= a+b;
         a=b;
         b=c;
         

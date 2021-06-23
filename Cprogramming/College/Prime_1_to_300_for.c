@@ -11,6 +11,6 @@ void main()
             break;              //If number is divisible, then it's not prime. So, exits loop.
         }
         if(i==j)              //If none of the numbers from 2 to 'i' divided 'i'. Then, control flows here.
-        printf("%d\n",i);    //Prints that numbers('i') which isn't divisible by number from 2 to i.q
+        printf("%d\n",i);    //Prints that numbers('i') which isn't divisible by number from 2 to i.
     }
 }

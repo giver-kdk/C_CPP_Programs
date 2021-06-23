@@ -16,7 +16,7 @@ void main()
     else                                // only runs the body statemnt when 'if' condition is false
     {
         printf("Entered number is odd");
-    }
+    
     printf("\nGoodBye");
     getch();
 
