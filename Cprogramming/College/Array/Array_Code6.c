@@ -1,3 +1,4 @@
+/*This program prints the address of array elements using array name*/
 #include <stdio.h>
 
 void main()
@@ -20,3 +21,4 @@ void main()
     printf("\t%d", j);
     
 }
+/*NOTE: The name of array is itself acting as pointer pointing address of first element a[0]*/
