@@ -4,7 +4,7 @@
 void main()
 {
     int n=10, i;
-    int marks[n]= {10, 20, 30, 1, 20};  
+    int marks[10]= {10, 20, 30, 1, 20};      // marks[]
 
     printf("The number is: \n");
     for(i=0; i<=n; i++)

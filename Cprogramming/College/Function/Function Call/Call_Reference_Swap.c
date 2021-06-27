@@ -18,8 +18,10 @@ void swap(int *x, int *y)
 {
     int temp;
     temp= *x;
-    *x= *y;
+    *x= *y;             
     *y= temp;
-    printf("\nValue of x= %d", *x);          //Value of x and y is swaped
+    printf("\nValue of x= %d", *x);          //Prints swaped component of '*x' and '*y' 
     printf("\nValue of y= %d", *y);
+    printf("\nValue of x= %d", x);          //Prints address of '*x'
+    printf("\nValue of y= %d", y);
 }

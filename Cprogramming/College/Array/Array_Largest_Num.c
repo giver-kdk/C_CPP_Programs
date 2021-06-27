@@ -21,5 +21,5 @@ void main()
         }
     }
     printf("The largest number is %d", largest);
-
+    getch();
 }

@@ -7,7 +7,7 @@ int main()
     printf("The prime number between 1 to 300 are: \n");                     
     while(num<=300)
     {     
-        i=2;
+        i=2;                     //Inside loop to reset i=2 for next even check
         while(i<=num-1)     
         {
             if(num%i==0)                    //Exits the loop if 'i' is even.
