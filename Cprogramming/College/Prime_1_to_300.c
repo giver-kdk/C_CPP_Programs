@@ -2,24 +2,24 @@
 
 int main()
 {
-    int num=1, i, j;
+    int n=1, i, j;
 
-    printf("The prime number between 1 to 300 are: \n");                     
-    while(num<=300)
+    printf("Prime numbers between 1 and 200: ");                     
+    while(n<=200)
     {     
         i=2;                     //Inside loop to reset i=2 for next even check
-        while(i<=num-1)     
+        while(i<=n-1)     
         {
-            if(num%i==0)                    //Exits the loop if 'i' is even.
+            if(n%i==0)                    //Exits the loop if 'i' is even.
             {
                 break;
             }
             i++;                      //Increments 'i'.
         }     
-        if(i==num)          //If 'i' is not divisible by any number from 2 to num-1, then prints 'i'.
+        if(i==n)          //If 'i' is not divisible by any number from 2 to num-1, then prints 'i'.
         {
             printf("%d\n", i);      
         }    
-        num++;                  //Increments 'num' for next loop.
+        n++;                  //Increments 'num' for next loop.
     }
 }
