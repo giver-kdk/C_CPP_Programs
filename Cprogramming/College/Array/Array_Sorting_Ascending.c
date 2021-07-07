@@ -17,13 +17,13 @@ void main()
 {
     int temp, i, j, array[size];            //Array can have symbolic constant  as its size
     printf("Enter any five numbers: \n");
-    for(i=0; i <= size - 1; i++)
+    for(i=0; i < size; i++)
     {
         scanf("%d", &array[i]);
     }
-    for(i=0; i <= size - 2; i++)      //Number of loop less than numbers of array elements by 1
+    for(i=0; i < size; i++)      //Number of loop less than numbers of array elements by 1
     {
-        for(j = 0; j <= (size - 1) - i; j++)    //Iteration/Looping decreases as 'i' increases
+        for(j = 0; j < size - i; j++)    //Iteration/Looping decreases as 'i' increases
         {
             //Take all the larger numbers towards ending side of array
             if(array[j] > array[j + 1])         

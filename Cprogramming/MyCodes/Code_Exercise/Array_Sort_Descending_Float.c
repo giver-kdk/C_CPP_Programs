@@ -1,5 +1,5 @@
 /*This program sorts array of real(float) numbersin descending order using 
-        Bubbble Sort Algorithm in 3 decimal places */
+        Bubbble Sort Algorithm in 3 decimal places. */
 #include <stdio.h>
 #define size 5
 
