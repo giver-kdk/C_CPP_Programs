@@ -3,6 +3,7 @@
 
 /*This program passes array name to pass all its elements to array argument of called function*/
 void display_array(int number[]);           //This fx has array argument 
+//----NOTE----No need to mention size for 1D Array unlike 2D Array
 
 int main()
 {
