@@ -38,5 +38,5 @@ int selection_sort(int a[], int n)
         temp = a[min_index];
         a[min_index] = a[i];
         a[i] = temp;                    //Swaps the 'i'th and 'min_index"th elements
-    }
+    }                       //Here, changes made in 'a[i]' is automatically reflected in 'array[size]'
 }

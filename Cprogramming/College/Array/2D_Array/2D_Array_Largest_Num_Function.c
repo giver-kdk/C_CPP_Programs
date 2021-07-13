@@ -4,7 +4,7 @@
 #define column 3
 
 int largest_element(int a[row][column]);              
-//----NOTE----Atleast one of the dimensions should be specified for 2D Array Argument unlike 1D Array
+//----NOTE----Atleast 2nd dimensions(column) should be specified for 2D Array Argument unlike 1D Array
 int main()
 {
     int i, j;

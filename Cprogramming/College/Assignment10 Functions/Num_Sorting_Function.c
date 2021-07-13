@@ -1,18 +1,17 @@
 /*This program sorts the entered numbers inascending order using recirsive function call*/
-
 #include <stdio.h>
 #include <conio.h>
 #define SIZE 100
 void sort(int nums[], int);
 void main()
 {
-int nums[SIZE], i, n;
-printf("\n How many numbers you want to sort(<100)?:\t");
-scanf("%d", &n);
-for(i=0;i<n;i++)
-	scanf("%d", &nums[i]);
-sort(nums, n);		//routine (function) call
-getch();
+    int nums[SIZE], i, n;
+    printf("\n How many numbers you want to sort(<100)?:\t");
+    scanf("%d", &n);
+    for(i=0;i<n;i++)
+        scanf("%d", &nums[i]);
+    sort(nums, n);		//routine (function) call
+    getch();
 }
 
 void sort(int nums[], int n)

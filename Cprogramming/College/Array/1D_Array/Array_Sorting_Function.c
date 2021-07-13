@@ -24,8 +24,8 @@ int bubble_sort(int b[], int n)
             if(b[j] > b[j + 1])
             {
                 temp = b[j];
-                b[j] = b[j + 1];
-                b[j + 1] = temp;
+                b[j] = b[j + 1];//Here, changes made in 'b[j]' is automatically reflected in 'array[5]'
+                b[j + 1] = temp; 
             }
         }
     }
