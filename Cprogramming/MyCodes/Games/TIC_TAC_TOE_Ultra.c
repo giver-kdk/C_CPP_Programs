@@ -1,13 +1,23 @@
+/*This program is a TIC-TAC-TOE game application. It is multidimensional Tic-Tac-Toe game,
+ 
+ *Features of Game:
+    *The game has size options of 3 by 3, 4 by 4 and 5 by 5. 
+    *Players can manually choose to be X or O.
+    *Respective winner player is declared when wins.
+    *If no one wins, then DRAW - DRAW.
+    *If any of the player chooses wrong place on the box, then his/her turn is cancelled.
+
+    -----------------------------Code by Giver Khadka---------------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
 
-void display_game(char game_field[100][100], int filed_size7A);
-char decide_winner(int ox_num, char player4A, int field_size4A);
-char check_winner(char check_field[100][100], char player3A, int field_size3A);
-void display_updated_game(char update_field[100][100], int place, char player2A, int field_size2A);
 void game_logic(char player1A, char playground[100][100], int field_size);
+void display_game(char game_field[100][100], int filed_size1A);
+void display_updated_game(char update_field[100][100], int place, char player2A, int field_size2A);
+char check_winner(char check_field[100][100], char player3A, int field_size3A);
+char decide_winner(int ox_num, char player4A, int field_size4A);
 
 int main()
 {
@@ -161,6 +171,18 @@ void game_logic(char player1A, char playground[100][100], int field_size)
     }
 
 }
+void display_game(char game_field[100][100], int field_size1A)
+{
+    int i, j;
+    for(i = 0; i < field_size1A; i++)
+        {
+            for(j = 0; j < field_size1A; j++)
+            {
+                printf(" %c", game_field[i][j]);
+            }
+            printf("\n");
+        }
+}
 void display_updated_game(char update_field[100][100], int place, char player2A, int field_size2A)
 {
     int temp = 0, swaped = 0, i, j;
@@ -193,18 +215,6 @@ void display_updated_game(char update_field[100][100], int place, char player2A,
     {
         printf("Please enter valid Place! Your Turn has been Cancelled!");
     }
-}
-void display_game(char game_field[100][100], int field_size7A)
-{
-    int i, j;
-    for(i = 0; i < field_size7A; i++)
-        {
-            for(j = 0; j < field_size7A; j++)
-            {
-                printf(" %c", game_field[i][j]);
-            }
-            printf("\n");
-        }
 }
 char check_winner(char check_field[100][100], char player3A, int field_size3A)
 {
