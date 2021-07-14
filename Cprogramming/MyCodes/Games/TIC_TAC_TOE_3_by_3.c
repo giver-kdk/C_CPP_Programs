@@ -2,13 +2,11 @@
 #include <conio.h>
 #include <stdlib.h>
 
-char display_game(char game_field[11][11]);
-char o_winner(char o_field, char player6A);
-char x_winner(char x_field, char player5A);
-char decide_winner(int ox_num, char player4A);
-char check_winner(char check_field[11][11], char player3A);
-void display_updated_game(char update_field[11][11], int place, char player2A);
 void game_logic(char player1A);
+char display_game(char game_field[11][11]);
+void display_updated_game(char update_field[11][11], int place, char player2A);
+char check_winner(char check_field[11][11], char player3A);
+char decide_winner(int ox_num, char player4A);
 
 int main()
 {
@@ -16,17 +14,17 @@ int main()
     char player;
     printf("Player 1 ==> X\tPlayer 2 ==> O\nWhich player are you?:");
     scanf(" %c", &player);
-    if(player == 'x' || '1')
-    {
-        player = 'X';
-        game_logic(player);
-    }
-    else if(player == 'o' || '2')
+    if(player == 'o' || player == '2')
     {
         player = 'O';
         game_logic(player);
     }
-
+    else if(player == 'x' || player == '1')
+    {
+        player = 'X';
+        game_logic(player);
+    }
+    getch();
 }
 void game_logic(char player1A)
 {
@@ -36,25 +34,23 @@ void game_logic(char player1A)
     {
         
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-        {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
         {' ', '1', ' ', '|', ' ', '2', ' ', '|', ' ', '3', ' '},
+        {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
         {'_', '_', '_', '|', '_', '_', '_', '|', '_', '_', '_'},
         {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
         {' ', '4', ' ', '|', ' ', '5', ' ', '|', ' ', '6', ' '},
         {'_', '_', '_', '|', '_', '_', '_', '|', '_', '_', '_'},
         {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
-        {' ', '7', ' ', '|', ' ', '8', ' ', '|', ' ', '9', ' '},
         {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
+        {' ', '7', ' ', '|', ' ', '8', ' ', '|', ' ', '9', ' '},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
     };
+    display_game(playground);
     while(resume_game = '0')
     {
-        display_game(playground);
         printf("\nTurn for Player %c\tWhere do you want to place %c: ", player1A, player1A);
         scanf("%d", &input_choice);
         display_updated_game(playground, input_choice, player1A);
-        x_winner(playground, player1A);
-        o_winner(playground, player1A);
         
         check_winner(playground, player1A);
         if(player1A == 'X')
@@ -87,7 +83,6 @@ void game_logic(char player1A)
             return;
         }
     }
-
 }
 void display_updated_game(char update_field[11][11], int place, char player2A)
 {
@@ -96,17 +91,8 @@ void display_updated_game(char update_field[11][11], int place, char player2A)
     {
         for(j = 0; j < 11; j++)
         {
-            if((place / 10) + 48 == update_field[i][j])
-            {
-                if((place % 10) + 48 == update_field[i][j + 1])
-                {
-                    temp = update_field[i][j + 1];
-                    update_field[i][j] = player2A;
-                    update_field[i][j + 1] = ' ';
-                    swaped = 1;
-                }
-            }
-            else if(place + 48 == update_field[i][j])
+            
+            if(place + 48 == update_field[i][j])
             {
                 temp = update_field[i][j];
                 update_field[i][j] = player2A;
