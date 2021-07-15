@@ -1,4 +1,4 @@
-/*This program takes a matrix as an input from the user ans displays its transpose*/
+/*This program takes a matrix as an input from the user and displays its transpose*/
 #include <stdio.h>
 int main()
 {

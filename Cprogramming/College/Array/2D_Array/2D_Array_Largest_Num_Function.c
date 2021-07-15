@@ -5,6 +5,7 @@
 
 int largest_element(int a[row][column]);              
 //----NOTE----Atleast 2nd dimensions(column) should be specified for 2D Array Argument unlike 1D Array
+//----NOTE----Dimension of array in calling and array in called function should be same
 int main()
 {
     int i, j;
