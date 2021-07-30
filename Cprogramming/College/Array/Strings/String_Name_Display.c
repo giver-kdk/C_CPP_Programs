@@ -5,7 +5,9 @@ int main()
 {
     char name[100];
     printf("Enter your name: ");
+    //NOTE: '&' not required for string in scanf
     scanf("%s", name);              //Ignores characters after whitespace
+
     printf("Your name is : ");
     puts(name);
 }
