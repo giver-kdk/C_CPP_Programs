@@ -2,7 +2,6 @@
 #include <conio.h>
 /*This program checks if the entered number is Palindrome or not.
 Palindrome numbers are numbers which remain same even after reversing all its digits*/
-
 int main()
 {
     int n, reverse=0, r, t;
