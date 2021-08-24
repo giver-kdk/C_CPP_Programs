@@ -6,7 +6,7 @@
 void delay(int no_of_millisecond)
 {
     clock_t start_time = clock();
-    while (clock()<start_time+no_of_millisecond);
+    while (clock() < start_time + no_of_millisecond);
     
 }
 int main()

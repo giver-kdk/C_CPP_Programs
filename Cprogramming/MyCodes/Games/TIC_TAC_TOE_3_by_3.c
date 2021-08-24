@@ -109,6 +109,7 @@ void display_updated_game(char update_field[11][11], int place, char player2A)
 char display_game(char game_field[11][11])
 {
     int i, j;
+    system("cls");
     for(i = 0; i < 11; i++)
         {
             for(j = 0; j < 11; j++)

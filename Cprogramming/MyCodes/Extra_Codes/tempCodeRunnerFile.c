@@ -1,1 +1,1 @@
-Giver Khadka
+    printf("%d\n", clock());

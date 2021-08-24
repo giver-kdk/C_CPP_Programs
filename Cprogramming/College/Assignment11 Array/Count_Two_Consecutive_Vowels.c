@@ -10,16 +10,20 @@ Observe that in a word such as studious we have counted “io” and “ou” as
 int main()
 {
     int i, count = 0;
-    char string[100], vowel[5] = "aeiou";
+    char string[100], vowel[] = "aeiou";
     printf("Write any sentence: ");
     gets(string);
+    
     for(i = 0; string[i] != '\0'; i++)
-    {
+    {   //Check character to be vowel or not
         if(strchr(vowel, string[i]) != NULL)
-        {
-            if(strchr(vowel, string[i + 1]) != NULL)
-            {
-                count++;
+        {   //'vowel' string contains '\0' as well
+            if(string[i + 1] != '\0')       //Avoids '\0' as consecutive character
+            {   //Check consecutive character to be vowel or not
+                if(strchr(vowel, string[i + 1]) != NULL)
+                {
+                    count++;       
+                }
             }
         }
     }

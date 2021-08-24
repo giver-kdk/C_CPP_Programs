@@ -179,6 +179,7 @@ void game_logic(char player1A, char playground[100][100], int field_size)
 void display_game(char game_field[100][100], int field_size1A)
 {   //Print 2D Array
     int i, j;
+    system("cls");
     for(i = 0; i < field_size1A; i++)
         {
             for(j = 0; j < field_size1A; j++)

@@ -1,5 +1,6 @@
 /*This program calculates the area of circle using formula*/
 #include <stdio.h>
+
 int main()
 {
     int r, A;                                   //r i sradius of circle
