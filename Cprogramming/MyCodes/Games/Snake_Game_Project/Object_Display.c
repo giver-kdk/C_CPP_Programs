@@ -17,11 +17,10 @@ int main()
         }
     }
     game[29][59] = '\0';
-    for(i = 15; i < 30; i++)
-    {
-        game[15][i] = 'O';
-    }
-    game[15][i] = '>';
+    // for(i = 15; i < 30; i++)
+    // {
+    //     game[15][i] = 'O';
+    // }
     // if(i < 20)
     // {
     //     game[15][i] = 'O';
@@ -29,16 +28,22 @@ int main()
     // game[15][i] = 'O';
     // game[15][i - 5] = ' ';
     printf("\n\n\n\n\t");
-    for(i = 0; i < 29; i++)
+    game[15][30] = '>';
+    for(i = 0; i < 5; i++)
     {
-        printf("\t");
-        for(j = 0; j < 59; j++)
+        for(i = 0; i < 29; i++)
         {
-            printf("%c ", game[i][j]);
+            printf("\t");
+            game[15][i] = 'O';
+            for(j = 0; j < 59; j++)
+            {
+                printf("%c ", game[i][j]);
+            }
+            printf("\n");
+            printf("\t");
         }
-        printf("\n");
-        printf("\t");
     }
+    
     getch();
 }
 void delay(int millisecond)
