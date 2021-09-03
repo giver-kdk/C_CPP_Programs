@@ -2,34 +2,38 @@
 #include <string.h>
 #include <conio.h>
 
-union student
+struct student
 {
     char name[20];
     int roll_num;
     int salary;
 };
-void display(union student s1, union student s2, union student s3, union student s4)                         //Function with character pointer(string) as arguments
+void display(struct student s1, struct student s2, struct student s3, struct student s4)                         //Function with character pointer(string) as arguments
 {   
-    int a, b, c;                  
+    int a, b, c;   
+    char str1[20], str2[20], str3[20], str4[20];               
     printf("Enter name: ");    
     gets(s1.name);
-    a = strcmp(strlwr(s1.name), strlwr(s2.name));
-    b = strcmp(strlwr(s1.name), strlwr(s3.name));
-    c = strcmp(strlwr(s1.name), strlwr(s4.name));
-    // printf("%d\t%d\t%d", a, b, c);
-    if(a == 1 || b == 1 || c == 1)
+    strcpy(str1, strlwr(s1.name));
+    strcpy(str2, strlwr(s2.name));
+    strcpy(str3, strlwr(s3.name));
+    strcpy(str4, strlwr(s4.name));
+    a = strcmp(str1, str2);
+    b = strcmp(str1, str3);
+    c = strcmp(str1, str4);
+    if(a == 0 || b == 0 || c == 0)
     {
         printf("Enter Roll Number: ");
         scanf("%d", &s1.roll_num);
-        if(s1.roll_num == 57 && a == 1)
+        if(s1.roll_num == 57 && a == 0)
         {
             printf("Your Salary is: %d", s2.salary);
         }
-        else if(s1.roll_num == 58 && b == 1)
+        else if(s1.roll_num == 58 && b == 0)
         {
             printf("Your Salary is: %d", s3.salary);
         }
-        else if(s1.roll_num == 59 && c == 1)
+        else if(s1.roll_num == 59 && c == 0)
         {
             printf("Your Salary is: %d", s4.salary);
         }
@@ -42,7 +46,7 @@ void display(union student s1, union student s2, union student s3, union student
 
 int main()
 {
-    union student a1, a2, a3, a4;                  
+    struct student a1, a2, a3, a4;                  
     strcpy(a2.name, "Ram");
     strcpy(a3.name, "Vam");
     strcpy(a4.name, "Aam");
