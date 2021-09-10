@@ -13,7 +13,7 @@
 #include <conio.h>
 
 void game_logic(char player1A, char playground[100][100], int field_size);
-void display_game(char game_field[100][100], int filed_size1A);
+void display_game(char game_field[100][100], int field_size1A);
 void display_updated_game(char update_field[100][100], int place, char player2A, int field_size2A);
 char check_winner(char check_field[100][100], char player3A, int field_size3A);
 char decide_winner(int ox_num, char player4A, int field_size4A);
