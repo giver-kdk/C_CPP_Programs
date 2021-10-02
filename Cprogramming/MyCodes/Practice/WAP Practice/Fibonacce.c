@@ -6,6 +6,15 @@
 
 int main()
 {
-	int i, a, b, c, d;
-	
+	int i, num, a = 0, b = 1, c, d;
+	printf("Enter the value of n: ");
+	scanf("%d", &num);
+	printf("%d\t", a);
+	while(c <= num)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		printf("%d\t", a);
+	}
 }
