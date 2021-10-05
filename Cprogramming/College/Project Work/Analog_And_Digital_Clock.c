@@ -14,7 +14,8 @@ void clear(int, int, int, int, int);
 
 int main()
 {
-	SYSTEMTIME t;
+	SYSTEMTIME t;											//Creates a systemtime data type variable to store time
+	//systemtime structure has wSecond, wMinute, wHour, wMillisecond,...etc as members
 	int gd = DETECT, gm, errorcode;
 	char data[] = "C:\\MINGw\\lib\\libbgi.a";
 	int key, k = 0, x, y, midx, midy, t_sec, t_min, t_hour;
