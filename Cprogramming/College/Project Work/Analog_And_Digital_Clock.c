@@ -7,31 +7,22 @@
 #include <process.h>
 #include <windows.h>
 
-struct time
-{
-	int wSecond;
-	int wMinute;
-	int wHour;
-};
-
 void frame();
 void draw_Numbers(int, int, int);
 void line_at_angle(int, float, int);
-void beep(int, int);
 void clear(int, int, int, int, int);
 
-int main(void)
+int main()
 {
 	SYSTEMTIME t;
 	int gd = DETECT, gm, errorcode;
 	char data[] = "C:\\MINGw\\lib\\libbgi.a";
-	struct time i;
 	int key, k = 0, x, y, midx, midy, t_sec, t_min, t_hour;
 	char tim[5];
 	float hour, ang_sec, ang_min, ang_hour;
 
 	initgraph(&gd, &gm, data);
-	GetSystemTime(&t);
+	GetLocalTime(&t);
 	midx = getmaxx() / 2;
 	midy = getmaxy() / 2;
 	frame();
@@ -45,7 +36,7 @@ int main(void)
 				break;
 			}
 		}
-		GetSystemTime(&t);
+		GetLocalTime(&t);
 		if(t.wHour >= 12)
 		{
 			hour = t.wHour - 12;
@@ -69,7 +60,7 @@ int main(void)
 		setfillstyle(1, 4);
 		setcolor(13);
 		x = 520, y = 460;
-		GetSystemTime(&t);
+		GetLocalTime(&t);
 		if(t.wHour > 12)
 		{
 			char p[] = "PM";
@@ -94,11 +85,11 @@ int main(void)
 		if(k == 10)
 		{
 			k = 0;
-			beep(100, 50);
+			Beep(500, 250);
 		}
 		else
 		{
-			delay(100);
+			delay(45);
 		}
 		t_sec = t.wSecond;
 		t_min = t.wMinute;
@@ -138,7 +129,7 @@ void frame()
 	setlinestyle(1, 1, 3);
 	setfillstyle(1, 2);
 	setcolor(4);
-	for(i = 0; i <= 60; i++)
+	for(i = 0; i < 60; i++)
 	{
 		x = cos((angle / 180) * M_PI) * 190;
 		y = sin((angle / 180) * M_PI) * 190;
@@ -176,7 +167,7 @@ void line_at_angle(int radius, float angle, int flag)
 	{
 		line(midx, midy, midx + x, midy + y);
 	}
-	if(flag == 2)
+	else if(flag == 2)
 	{
 		setlinestyle(0, 1, 1);
 		x2 = cos(((angle + 3) / 180) * M_PI) * (radius - 25);
@@ -185,15 +176,15 @@ void line_at_angle(int radius, float angle, int flag)
 		y3 = sin(((angle - 3) / 180) * M_PI) * (radius - 25);
 
 		poly1[0] = midx;
-		poly1[0] = midy;
-		poly1[0] = midx + x2;
-		poly1[0] = midy + y2;
-		poly1[0] = midx + x;
-		poly1[0] = midy + y;
-		poly1[0] = midx + x3;
-		poly1[0] = midy + y3;
-		poly1[0] = midx;
-		poly1[0] = midy;
+		poly1[1] = midy;
+		poly1[2] = midx + x2;
+		poly1[3] = midy + y2;
+		poly1[4] = midx + x;
+		poly1[5] = midy + y;
+		poly1[6] = midx + x3;
+		poly1[7] = midy + y3;
+		poly1[8] = midx;
+		poly1[9] = midy;
 
 		fillpoly(5, poly1);
 		setcolor(0);
@@ -213,15 +204,15 @@ void line_at_angle(int radius, float angle, int flag)
 		y3 = sin(((angle - 5) / 180) * M_PI) * (radius - 30);
 
 		poly1[0] = midx;
-		poly1[0] = midy;
-		poly1[0] = midx + x2;
-		poly1[0] = midy + y2;
-		poly1[0] = midx + x;
-		poly1[0] = midy + y;
-		poly1[0] = midx + x3;
-		poly1[0] = midy + y3;
-		poly1[0] = midx;
-		poly1[0] = midy;
+		poly1[1] = midy;
+		poly1[2] = midx + x2;
+		poly1[3] = midy + y2;
+		poly1[4] = midx + x;
+		poly1[5] = midy + y;
+		poly1[6] = midx + x3;
+		poly1[7] = midy + y3;
+		poly1[8] = midx;
+		poly1[9] = midy;
 
 		fillpoly(5, poly1);
 		setcolor(0);
@@ -232,12 +223,6 @@ void line_at_angle(int radius, float angle, int flag)
 		line(midx + x2, midy + y2, midx + x3, midy + y3);
 		line(midx + x, midy + y, midx + x3, midy + y3);
 	}
-}
-void beep(int fre, int wait)
-{
-	// sound(fre);
-	delay(wait);
-	// nosound();
 }
 void draw_Numbers(int x, int y, int position)
 {
