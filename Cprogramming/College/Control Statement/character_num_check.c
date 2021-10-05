@@ -4,7 +4,7 @@
 void main()
 {
     char ch1;
-    printf("Enter any charcter: ");
+    printf("Enter any character: ");
     scanf(" %c", &ch1);
     if(ch1>=65 && ch1<=90)
     {
@@ -23,5 +23,4 @@ void main()
         printf("Special Character");
     }
     getch();
-
 }
