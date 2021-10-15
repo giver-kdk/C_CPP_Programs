@@ -1,3 +1,4 @@
+/*This program is a hybrid clock. Source code from C Programming text book.*/
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -23,13 +24,13 @@ int main()
 	float hour, ang_sec, ang_min, ang_hour;
 
 	initgraph(&gd, &gm, data);
-	GetLocalTime(&t);
-	midx = getmaxx() / 2;
+	GetLocalTime(&t);										//Store system time in 't'
+	midx = getmaxx() / 2;									//Store mid point value of screen
 	midy = getmaxy() / 2;
 	frame();
 	while(1)
 	{
-		if(kbhit())
+		if(kbhit())											//'kbhit' returns zero unless any keyboard pressed
 		{
 			key = getch();
 			if(key == 27)
@@ -49,7 +50,8 @@ int main()
 		ang_sec = t.wSecond * 6;
 		ang_min = (t.wMinute * 6) + (ang_sec / 60);
 		ang_hour = (hour * 30) + (ang_min / 12);
-		setcolor(4);setfillstyle(1, 9);
+		setcolor(4);
+		setfillstyle(1, 9);
 		circle(midx, midy, 6);
 		line_at_angle(150, ang_min, 2);				//Minute
 		setcolor(12);
@@ -65,13 +67,13 @@ int main()
 		if(t.wHour > 12)
 		{
 			char p[] = "PM";
-			outtextxy(x + 80, y, p);
-			sprintf(tim, "%d", t.wHour - 12);
+			outtextxy(x + 80, y, p);				//Display text on specified position
+			sprintf(tim, "%d", t.wHour - 12);		//Store formatted string in 'tim'
 		}
 		else
 		{
 			char a[] = "AM";
-			outtextxy(x + 80, y, a);
+			outtextxy(x + 80, y, a);	
 			sprintf(tim, "%d", t.wHour);
 		}
 		char dash[] = ":";
@@ -86,11 +88,12 @@ int main()
 		if(k == 10)
 		{
 			k = 0;
-			Beep(500, 250);
+			Beep(500, 250);					//Produces beeping sound(Defined in windows.h)
+			//Beep(frequency, duration);
 		}
 		else
 		{
-			delay(45);
+			delay(45);						//Stops the program for specified milliseconds
 		}
 		t_sec = t.wSecond;
 		t_min = t.wMinute;
@@ -187,7 +190,7 @@ void line_at_angle(int radius, float angle, int flag)
 		poly1[8] = midx;
 		poly1[9] = midy;
 
-		fillpoly(5, poly1);
+		fillpoly(5, poly1);									//Creates and fills a custom polygon shape
 		setcolor(0);
 		x2 = cos(((angle) / 180) * M_PI) * (radius + 1);
 		y2 = sin(((angle) / 180) * M_PI) * (radius + 1);
@@ -233,7 +236,7 @@ void draw_Numbers(int x, int y, int position)
 	{
 		position = position % 12;
 	}
-	itoa(position, stpos, 10);
+	itoa(position, stpos, 10);								//Converts integer to string
 	outtextxy(x, y, stpos);
 }
 void clear(int x1, int y1, int x2, int y2, int col)
@@ -242,8 +245,8 @@ void clear(int x1, int y1, int x2, int y2, int col)
 	for(x = x1; x <= x2; x++)
 	{
 		for(y =y1; y <= y2; y++)
-		{
-			putpixel(x, y, col);
+		{	
+			putpixel(x, y, col);					//Puts a colored pixel at specified position
 		}
 	}
 }

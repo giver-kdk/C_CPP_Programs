@@ -1,0 +1,32 @@
+<!DOCTYPE html>	<!--This defines document tye as html-->
+<html>
+	<head>
+		<title>Positions</title>
+		<style>
+			div
+			{
+				width: 300px;
+				height: 200px;
+				background: coral;
+			}
+			.outer
+			{	/*Position modification can't be applied in static position*/
+				width: 300px;
+				height: 200px;
+				color: coral;
+				position: static;		/*Any position will be applied0 to noraml origin of browser*/
+			}
+			.Fixed
+			{	/*The element stays on the foex position of viewport even when webpage scrolled*/
+				width: 300px;
+				height: 200px;
+				color: coral;
+				position: fixed;		/*Any position will be applied0 to noraml viewport of browser*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "outer"></div>	
+		<div class = "Fixed"></div>	
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!--Form tag is used to collect data from user and send to server-->
+<!DOCTYPE html>	<!--This defines document tye as html-->
+<html>
+	<head>
+		<title> Form</title>
+		<h1>This is Form</h1>
+	</head>
+	<body>
+		<!--method can be POST or GET-->
+		<form method = "GET" action = "Table.html">	<!--The input data will be shown in URL if GET is used-->
+		<!--Input data will not be shown in URL if POST method is used(This is Secure)-->
+			Username: <input type = "text"> <br>		<!--There are many input types like: text, number, password, etc.-->
+			Password: <input type = "password"> <br>		
+			Submit: <input type = "submit" value = "Login"> <br>
+			<!--size means number of displayed boxes-->
+			<select multiple size = "4">
+				<option value = "nepal">Nepal</option>
+				<option value = "india" selected>India</option>
+				<option value = "china">China</option>
+			</select>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>	<!--This defines document tye as html-->
+<html>
+	<head>
+		<title>Display Elements</title>
+		<style>
+			h1
+			{					/*Width and Height property is useless here*/
+				border: 5px solid;
+				display: inline;
+				width: 500px;
+				height: 500px;
+			}
+			a
+			{
+				border: 5px solid;
+				display: block;
+			}
+			h2
+			{
+				border: 5px solid;
+				display: inline-block;
+				width: 500px;
+				height: 500px;
+			}
+			p
+			{
+				border: 5px solid;
+				display: inline-block;
+				width: 500px;
+				height: 500px;
+				display: none;			/*Hides element and does't occupy space but occupies memory*/
+			}
+			div
+			{
+				width: 500px;
+				height: 500px;
+				background: coral;
+			}
+			.first
+			{
+				visibility: hidden;		/*Hides element but occupies space in weppage*/
+			}
+		</style>
+	</head>
+	<body>
+		<h1>This is a Heading</h1>
+		<a href = "Table_Design.html">This is a link</a>
+		<h2>This is a 2nd Heading</h2>
+		<p>This paragraph is not shown</p>
+		<div class = "first">
+			<h1>First div</h1>
+		</div>
+		<div>
+			<h1>Second div</h1>
+		</div>
+	</body>
+</html>

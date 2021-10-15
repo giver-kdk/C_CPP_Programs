@@ -1,0 +1,30 @@
+<!DOCTYPE html>	<!--This defines document tye as html-->
+<html>
+	<head>
+		<title>Positions</title>
+		<style>
+			div
+			{
+				width: 300px;
+				height: 200px;
+				background: coral;
+			}
+			.Atatic
+			{	/*Position modification can't be applied in static position*/
+				color: coral;
+				position: static;		/*Any position will be applied0 to noraml origin of browser*/
+			}
+			.Relative
+			{
+				color: coral;
+				position: relative;		/*Any position modification will be applied relative to current position*/
+				top: 250px;
+				left: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "Atatic"></div>		
+		<div class = "Relative"></div>		
+	</body>
+</html>
