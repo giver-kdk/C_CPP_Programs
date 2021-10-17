@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <conio.h>
+#include <string.h>
 
 int main()
 {
-	FILE *fp = fopen("Test.txt", "r");
-	char data;
-	data = fgetc(fp);
-	printf("%c", data);
+	char string[] = "Hello World";
+	strcpy(string, "\0");
+	printf("%s", string);
 }

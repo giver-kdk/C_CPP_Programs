@@ -200,7 +200,7 @@ void SearchEmployee()
 		fflush(stdin);
 		printf("ENTER EMPLOYEE ID: ");
 		gets(employeeId);
-		while(fread(&emp, sizeof(emp), 1, fp) == 1)
+		while(fread(&emp, sizeof(emp), 1, fp) != 0)
 		{
 			if(strcmp(emp.empId, employeeId) == 0)
 			{
