@@ -1,4 +1,4 @@
-/*Make a dual_lineprint() function o print the data in sequence. USe a variable to count number of line detected and print respective line.*/
+/*Make a dual_lineprint() function to print the data in sequence. USe a variable to count number of line detected and print respective line.*/
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
@@ -9,7 +9,9 @@
 void split_string(char search[100], char group[50][50], int *num);
 void print_result(int line_num[], int match_num[]);
 void print_data(char topic[], FILE *fp, int line);
-void dual_lineprint();
+void dual_lineprint(FILE *fp, int line);
+void descend_array(int array1[], int array2[], int size);
+void search_engine(FILE *fp1, char word_group[50][50]);
 
 int main()
 {
@@ -61,8 +63,9 @@ int main()
 		fclose(fp);
 	}
 	choice = 'n';
-	printf("Wan to see your %s notes...Y/N?", file_name);
+	printf("Want to see your %s notes...Y/N?", file_name);
 	scanf(" %c", &choice);
+	//Search Engine Logic
 	FILE *fp1 = fopen(file_name, "r");
 	if(choice == 'y' || choice == 'Y')
 	{
@@ -76,49 +79,8 @@ int main()
 			case '2':
 				split_string(search_word, word_group, &word_num);
 				i = 0;
-				while(1)		
-				{
-					fflush(stdin);
-					data = fgetc(fp1);
-					if(((data < 64 || data > 90) && (data < 97 || data > 122) && (data < 48 || data > 57)) || data == '\n')
-					{
-						file_word[i] = '\0';
-						line[k] = line_num;
-						if(data == '\n')
-						{
-							line_num++;
-							k++;
-							j++;
-							match_num = 0;
-						}
-						if((strcmp(strlwr(file_word), strlwr(word_group[l]))) == 0)
-						{
-							match_num++;
-							match[j] += match_num;
-						}
-						if(data == EOF)
-						{
-							fseek(fp1, 0, SEEK_SET);
-							if(l == (word_num - 1))
-							{
-								goto one;
-							}
-							j = 0;
-							k = 0;
-							line_num = 1;
-							l++;
-						}
-						strcpy(file_word, "\0");
-						i = 0;
-					}
-					else
-					{
-						file_word[i] = data;
-						i++;
-					}
-				}
-				one:
-				print_result(line, match);
+				
+				
 		}
 	}
 	fclose(fp1);
@@ -204,3 +166,159 @@ void print_data(char topic[], FILE *fp, int line)
 		}
 	}
 }
+void dual_lineprint(FILE *fp, int line)
+{
+	int count = 1, limit = 0, char_num = 0;
+	char data;
+	if(line % 2 == 0)
+	{
+		line = line - 1;
+	}
+	while((data= getc(fp)) != EOF)
+	{
+		if(data == '\n')
+		{
+			count++;
+		}
+		if(count == line)
+		{
+			if(line == 1)
+			{
+				fseek(fp, 0, SEEK_SET);
+			}
+			while((data= getc(fp)) != EOF)
+			{
+				if(data == '\n')
+				{
+					limit++;
+				}
+				if(limit == 2)
+				{
+					goto end;
+				}
+				printf("%c", data);
+				char_num++;
+				if(char_num >= 100 && data == ' ')
+				{
+					char_num = 0;
+					printf("\n");
+				}
+			}
+		}
+	}
+	end:
+	fseek(fp, 0, SEEK_SET);
+}
+void descend_array(int array1[], int array2[], int size)
+{
+	int i, j, temp1, temp2;
+
+	for(i = 0; i < size; i++)
+	{
+		for(j = i + 1; j < size; j++)
+		{
+			if(array2[i] < array2[j])
+			{
+				temp1 = array1[j];
+				temp2 = array2[j];
+				array1[j] = array1[i];
+				array2[j] = array2[i];
+				array1[i] = temp1;
+				array2[i] = temp2;
+			}
+		}
+	}
+}
+void search_engine(FILE *fp1, char word_group[50][50])
+{
+	while(1)	
+	{
+		fflush(stdin);
+		data = fgetc(fp1);
+		if(((data < 64 || data > 90) && (data < 97 || data > 122) && (data < 48 || data > 57)) || data == '\n')
+		{
+			file_word[i] = '\0';
+			line[k] = line_num;
+			if(data == '\n')
+			{
+				line_num++;
+				k++;
+				j++;
+				match_num = 0;
+			}
+			if((strcmp(strlwr(file_word), strlwr(word_group[l]))) == 0)
+			{
+				match_num++;
+				match[j] += match_num;
+			}
+			if(data == EOF)
+			{
+				fseek(fp1, 0, SEEK_SET);
+				if(l == (word_num - 1))
+				{
+					goto one;
+				}
+				j = 0;
+				k = 0;
+				line_num = 1;
+				l++;
+			}
+			strcpy(file_word, "\0");
+			i = 0;
+		}
+		else
+		{
+			file_word[i] = data;
+			i++;
+		}
+	}
+	one:
+	descend_array(line, match, new_line);
+	// print_result(line, match);
+	for(i = 0 ; i < new_line; i++)
+	{
+		if(line[i] % 2 == 0)
+		{
+			if(match[i] != 0)
+			{
+				for(j = 0; j < new_line; j++)
+				{
+					if(line[j] == line[i] - 1)
+					{
+						if(match[j] != 0)
+						{
+							match[j] = 0;
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			if(match[i] != 0)
+			{
+				for(j = 0; j < new_line; j++)
+				{
+					if(line[j] == line[i] + 1)
+					{
+						if(match[j] != 0)
+						{
+							match[j] = 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	// print_result(line, match);
+	printf("Search results from %s are:\n", file_name);
+	for(i = 0; i < new_line; i++)
+	{
+		if(match[i] != 0)
+		{
+			dual_lineprint(fp1, line[i]);
+			printf("\n");
+		}
+	}
+}
+
