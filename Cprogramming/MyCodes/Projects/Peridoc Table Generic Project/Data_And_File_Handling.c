@@ -1,4 +1,7 @@
-/*Make a dual_lineprint() function to print the data in sequence. USe a variable to count number of line detected and print respective line.*/
+/*This program takes question and answer input from user and stores in file.
+Users can access the data by following ways:
+* Get all the question-answers in one print
+* Access particular question-answer by searching keywords*/
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
@@ -9,7 +12,6 @@
 #define CHAR_LIMIT 100
 
 void split_string(char search[100], char group[50][50], int *num);
-void print_result(int line_num[], int match_num[]);
 void print_data(char topic[], FILE *fp, int line);
 void dual_lineprint(FILE *fp, int line, int j);
 void descend_array(int array1[], int array2[], int size);
