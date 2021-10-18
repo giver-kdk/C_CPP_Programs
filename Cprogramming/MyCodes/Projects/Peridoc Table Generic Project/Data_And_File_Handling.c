@@ -6,19 +6,21 @@
 #include <math.h>
 #include <string.h>
 
+#define CHAR_LIMIT 100
+
 void split_string(char search[100], char group[50][50], int *num);
 void print_result(int line_num[], int match_num[]);
 void print_data(char topic[], FILE *fp, int line);
-void dual_lineprint(FILE *fp, int line);
+void dual_lineprint(FILE *fp, int line, int j);
 void descend_array(int array1[], int array2[], int size);
-void search_engine(FILE *fp1, char word_group[50][50]);
+void search_engine(FILE *fp1, char word_group[50][50], int word_num, char file_name[], int new_line);
 
 int main()
 {
-	int i = 0, j = 0, k = 0, l = 0, new_line = 0;
-	int word_num = 0, line_num = 1, match_num = 0, line[100] = {0}, match[100] = {0};
+	int i = 0, new_line = 0;
+	int word_num = 0;
 	char file_name[50], choice, data, resume = 'y', answer[20] = "Answer:";
-	char file_word[50], search_word[100], word_group[50][50];
+	char search_word[100], word_group[50][50];
 	char *ptr2;
 	printf("Write and Save Important Question Answers...Y/N?\n");
 	scanf(" %c", &choice);
@@ -29,6 +31,7 @@ int main()
 		fflush(stdin);				//Clear buffer memory to avoid new line(Enter) as string input
 		gets(file_name);
 		FILE *fp = fopen(file_name, "w");
+		//Data Store in file
 		while(resume == 'y' || resume == 'Y')
 		{
 			i++;
@@ -78,9 +81,10 @@ int main()
 				break;
 			case '2':
 				split_string(search_word, word_group, &word_num);
-				i = 0;
-				
-				
+				search_engine(fp1, word_group, word_num, file_name, new_line);
+				break;
+			default:
+				printf("Invalid Selection");
 		}
 	}
 	fclose(fp1);
@@ -118,119 +122,48 @@ void split_string(char search[100], char group[50][50], int *num)
 		strcpy(group[i], search);
 	}
 }
-void print_result(int line_num[], int match_num[])
+void print_data(char topic[], FILE *fp, int new_line)
 {
-	int i;
-	for(i = 0; i < 5; i++)
-	{
-		printf("%d\t", line_num[i]);
-	}
-	printf("\n");
-	for(i = 0; i < 5; i++)
-	{
-		printf("%d\t", match_num[i]);
-	}
-}
-void print_data(char topic[], FILE *fp, int line)
-{
-	int count = 0, line_num = 0;
+	int count = 0, line_num = 0, i = 1;
 	char data, bullet[] = "Question:";
 	printf("Question Answers of %s are:\n\n", topic);
-	printf("Question:\n");
+	printf("Question (%d) >>>>\n", i);
 	while((data= getc(fp)) != EOF)
 	{
 		if(data == '\n')
 		{
 			line_num++;
-			if(line_num == line)
+			if(line_num == new_line)
 			{
 				printf(" ");
 			}
 			else if(strcmp(bullet, "Question:") == 0)
 			{
-				printf("\nAnswer:\t");
+				printf("\nAns:\t");
 				strcpy(bullet, "Answer:");
 			}
 			else if(strcmp(bullet, "Answer:") == 0)
 			{
-				printf("\nQuestion:\t");
+				i++;
+				printf("\n\nQuestion (%d) >>>>\t", i);
 				strcpy(bullet, "Question:");
 			}
 		}
 		printf("%c", data);
 		count++;
-		if(count >= 100 && data == ' ')
+		if(count >= CHAR_LIMIT && data == ' ')
 		{
 			count = 0;
 			printf("\n");
 		}
 	}
 }
-void dual_lineprint(FILE *fp, int line)
+void search_engine(FILE *fp1, char word_group[50][50], int word_num, char file_name[], int new_line)
 {
-	int count = 1, limit = 0, char_num = 0;
+	char file_word[50];
 	char data;
-	if(line % 2 == 0)
-	{
-		line = line - 1;
-	}
-	while((data= getc(fp)) != EOF)
-	{
-		if(data == '\n')
-		{
-			count++;
-		}
-		if(count == line)
-		{
-			if(line == 1)
-			{
-				fseek(fp, 0, SEEK_SET);
-			}
-			while((data= getc(fp)) != EOF)
-			{
-				if(data == '\n')
-				{
-					limit++;
-				}
-				if(limit == 2)
-				{
-					goto end;
-				}
-				printf("%c", data);
-				char_num++;
-				if(char_num >= 100 && data == ' ')
-				{
-					char_num = 0;
-					printf("\n");
-				}
-			}
-		}
-	}
-	end:
-	fseek(fp, 0, SEEK_SET);
-}
-void descend_array(int array1[], int array2[], int size)
-{
-	int i, j, temp1, temp2;
-
-	for(i = 0; i < size; i++)
-	{
-		for(j = i + 1; j < size; j++)
-		{
-			if(array2[i] < array2[j])
-			{
-				temp1 = array1[j];
-				temp2 = array2[j];
-				array1[j] = array1[i];
-				array2[j] = array2[i];
-				array1[i] = temp1;
-				array2[i] = temp2;
-			}
-		}
-	}
-}
-void search_engine(FILE *fp1, char word_group[50][50])
-{
+	int i = 0, j = 0, k = 0, l = 0;
+	int line_num = 1, match_num = 0, line[100] = {0}, match[100] = {0};
 	while(1)	
 	{
 		fflush(stdin);
@@ -274,7 +207,6 @@ void search_engine(FILE *fp1, char word_group[50][50])
 	}
 	one:
 	descend_array(line, match, new_line);
-	// print_result(line, match);
 	for(i = 0 ; i < new_line; i++)
 	{
 		if(line[i] % 2 == 0)
@@ -310,14 +242,79 @@ void search_engine(FILE *fp1, char word_group[50][50])
 			}
 		}
 	}
-	// print_result(line, match);
-	printf("Search results from %s are:\n", file_name);
+	printf("\nSearch results from %s file are :>>>>>>>>>>", file_name);
+	j = 0;
 	for(i = 0; i < new_line; i++)
 	{
 		if(match[i] != 0)
 		{
-			dual_lineprint(fp1, line[i]);
-			printf("\n");
+			j++;
+			dual_lineprint(fp1, line[i], j);
+		}
+	}
+}
+void dual_lineprint(FILE *fp, int line, int j)
+{
+	int count = 1, limit = 0, char_num = 0, line_num = 0;
+	char data;
+	if(line % 2 == 0)
+	{
+		line = line - 1;
+	}
+	printf("\n\nQuestion (%d) >>>>\n", j);
+	while((data= getc(fp)) != EOF)
+	{
+		if(data == '\n')
+		{
+			count++;
+		}
+		if(count == line)
+		{
+			if(line == 1)
+			{
+				fseek(fp, 0, SEEK_SET);
+			}
+			while((data= getc(fp)) != EOF)
+			{
+				if(data == '\n')
+				{
+					limit++;
+					if(limit == 2)
+					{
+						goto end;
+					}
+					printf("\nAns:");
+				}
+				printf("%c", data);
+				char_num++;
+				if(char_num >= CHAR_LIMIT && data == ' ')
+				{
+					char_num = 0;
+					printf("\n");
+				}
+			}
+		}
+	}
+	end:
+	fseek(fp, 0, SEEK_SET);
+}
+void descend_array(int array1[], int array2[], int size)
+{
+	int i, j, temp1, temp2;
+
+	for(i = 0; i < size; i++)
+	{
+		for(j = i + 1; j < size; j++)
+		{
+			if(array2[i] < array2[j])
+			{
+				temp1	  = array1[j];
+				temp2	  = array2[j];
+				array1[j] = array1[i];
+				array2[j] = array2[i];
+				array1[i] = temp1;
+				array2[i] = temp2;
+			}
 		}
 	}
 }
