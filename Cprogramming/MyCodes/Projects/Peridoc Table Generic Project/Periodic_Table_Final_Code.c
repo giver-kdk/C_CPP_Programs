@@ -221,7 +221,7 @@ int main()
     {
           elem[1].atomicw=1.008;           elem[1].atomicr=53;            elem[1].en=2.20;
           elem[2].atomicw=4.002602;        elem[2].atomicr=31;            elem[2].en=0;
-          elem[3].atomicw=6.94;            elem[3].atomicr=167	;       elem[3].en=0.98;
+          elem[3].atomicw=6.94;            elem[3].atomicr=167;           elem[3].en=0.98;
           elem[4].atomicw=9.012182;        elem[4].atomicr=112;           elem[4].en=1.57;
           elem[5].atomicw=10.81;           elem[5].atomicr=87;            elem[5].en=2.04;
           elem[6].atomicw=12.011;          elem[6].atomicr=67;            elem[6].en=2.55;
@@ -311,7 +311,7 @@ int main()
           elem[90].atomicw=232.03806;      elem[90].atomicr=0;            elem[90].en=1.3;
           elem[91].atomicw=231.03588;      elem[91].atomicr=0;            elem[91].en=1.5;
           elem[92].atomicw=238.02891;      elem[92].atomicr=0;            elem[92].en=1.38;
-          elem[93].atomicw=237;            elem[93].atomicr=0;            elem[93].en=1.36	;
+          elem[93].atomicw=237;            elem[93].atomicr=0;            elem[93].en=1.36;
           elem[94].atomicw=244;            elem[94].atomicr=0;            elem[94].en=1.28;
           elem[95].atomicw=243;            elem[95].atomicr=0;            elem[95].en=1.3;
           elem[96].atomicw=247;            elem[96].atomicr=0;            elem[96].en=1.3;
@@ -908,7 +908,7 @@ void write_data()
 	if(choice == 'y' || choice == 'Y')
 	{
 		write:
-		printf("Enter your Note ID Name: ");
+		printf("Enter your File Name (With Extension): ");
 		fflush(stdin);				//Clear buffer memory to avoid new line(Enter) as string input
 		gets(file_name);
 		FILE *fp1 = fopen(file_name, "r");
@@ -933,7 +933,7 @@ void read_data()
 	char file_name[50], choice;
 	char search_word[100], word_group[50][50];
 	read:
-	printf("\nEnter the Note ID Name to study: ");
+	printf("\nEnter the File Name (With Extension) to study: ");
 	fflush(stdin);				//Clear buffer memory to avoid new line(Enter) as string input
 	gets(file_name);
 	FILE *fp1 = fopen(file_name, "r");
@@ -957,8 +957,15 @@ void read_data()
 			print_data(file_name, fp1, new_line);
 			break;
 		case '2':
+               search:
 			split_string(search_word, word_group, &word_num);
 			search_engine(fp1, word_group, word_num, file_name, new_line);
+               printf("\n\n\t\tDo you want to search again? (Y/N)");
+               scanf(" %c", &choice);
+               if(choice == 'y' || choice == 'Y')
+               {
+                    goto search;
+               }
 			break;
 		default:
 			printf("Invalid Selection");
@@ -970,7 +977,7 @@ void edit_data()
 	int i = 0, new_line = 0;
 	char file_name[50], data, resume = 'y';
 	edit:
-	printf("\nEnter the Note ID Name to modify: ");
+	printf("\nEnter the File Name (With Extension) to modify: ");
 	fflush(stdin);				//Clear buffer memory to avoid new line(Enter) as string input
 	gets(file_name);
 	FILE *fp1 = fopen(file_name, "r");
@@ -982,6 +989,7 @@ void edit_data()
 	fclose(fp1);
 	fp1 = fopen(file_name, "a");
 	store_loop(fp1);
+     fclose(fp1);
 }
 void store_loop(FILE *fp1)
 {
@@ -1042,6 +1050,7 @@ void print_data(char topic[], FILE *fp, int new_line)
 	{
 		if(data == '\n')
 		{
+               count = 0;
 			line_num++;
 			if(line_num == new_line)
 			{
@@ -1152,7 +1161,7 @@ void search_engine(FILE *fp1, char word_group[50][50], int word_num, char file_n
 			}
 		}
 	}
-	printf("\nSearch results from %s file are :>>>>>>>>>>", file_name);
+	printf("\nSorted Search results from %s file are :>>>>>>>>>>", file_name);
 	j = 0;
 	for(i = 0; i < new_line; i++)
 	{
@@ -1241,6 +1250,7 @@ void dual_lineprint(FILE *fp, int line, int j)
 			{
 				if(data == '\n')
 				{
+                         char_num = 0;
 					limit++;
 					if(limit == 2)
 					{
