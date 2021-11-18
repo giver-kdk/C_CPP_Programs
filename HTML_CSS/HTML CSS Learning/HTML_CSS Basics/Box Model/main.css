@@ -1,0 +1,10 @@
+.box
+{
+	border: 1px solid black;
+	margin: 100px;										/* Margin is space outside border*/
+	/* margin: 100px 100px 100px 100px is equivalent to above.
+	The order of parameters is top, right, bottom and left(CLockwise)*/
+	/* margin: 100px 100px means 100px vertical and 100px horizontal margin*/
+	padding: 50px;										/* Padding is space inside border*/
+	
+}

@@ -126,6 +126,10 @@ void read_data()
 			break;
 		case '2':
 			search:
+			// Reset variables for every search
+			word_num = 0;
+			search_word[0] = '\0';
+			word_group[0][0] = '\0';
 			//Take search input and breakdown words
 			split_string(search_word, word_group, &word_num);
 			//Search input words in file and print

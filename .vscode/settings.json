@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "1+11+111.C": "cpp"
-    }
+        "1+11+111.C": "cpp",
+        "stdio.h": "c"
+    },
+    "cmake.configureOnOpen": true
 }
