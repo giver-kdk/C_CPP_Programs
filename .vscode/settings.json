@@ -1,7 +1,10 @@
 {
     "files.associations": {
         "1+11+111.C": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "array": "c",
+        "initializer_list": "c",
+        "utility": "c"
     },
     "cmake.configureOnOpen": true
 }

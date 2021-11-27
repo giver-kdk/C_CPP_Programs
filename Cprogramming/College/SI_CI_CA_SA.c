@@ -17,7 +17,7 @@ void main()
     SA= p+SI;
     printf("\nSimple Amount: %.3f", SA);
     CA= p+CI;
-    printf("\nCompound AmountL %.3f", CA);
+    printf("\nCompound Amount %.3f", CA);
     printf("\nThe difference between CA and SA: %.3f", CA-SA);
 
 }
