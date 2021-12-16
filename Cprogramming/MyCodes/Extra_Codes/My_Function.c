@@ -9,8 +9,8 @@ int do_addition(int x, int y)
     scanf("%d", &x);
     printf("Enter the second number");
     scanf("%d", &y);
-    sum= x+y;
-    return(sum);
+    sum = x + y;
+    return (sum);
 }
 
 int do_subtraction(int p, int q)
@@ -20,7 +20,6 @@ int do_subtraction(int p, int q)
     scanf("%d", &p);
     printf("Enter the second number");
     scanf("%d", &q);
-    sub= p-q;
-    return(sub);
+    sub = p - q;
+    return (sub);
 }
-

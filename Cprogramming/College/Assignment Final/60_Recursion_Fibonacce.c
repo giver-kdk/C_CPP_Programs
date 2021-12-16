@@ -22,7 +22,7 @@ int main()
     int i, number;
     printf("Enter the number of terms for fibonacce series: ");
     scanf("%d", &number);
-    for(i=1; i<=number; i++)
+    for(i = 1; i <= number; i++)
     {
         printf("%d\t", print_fibonacce(i));     //Repeatedly prints output according to 'i'.
     }

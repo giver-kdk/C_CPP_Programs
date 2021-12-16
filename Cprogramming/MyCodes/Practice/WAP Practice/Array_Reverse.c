@@ -23,7 +23,7 @@ void reverse_array(int *ptr)
 {
 	int i, j, temp;
 	for(i = 0, j = SIZE - 1; i != j; i++, j--)
-	{	//Swap the first and last elements to reverse
+	{	// Swap the first and last elements to reverse
 		temp = *(ptr + i);
 		*(ptr + i) = *(ptr + j); 
 		*(ptr + j) = temp;

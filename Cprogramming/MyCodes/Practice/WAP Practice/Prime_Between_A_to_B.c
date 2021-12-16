@@ -6,12 +6,11 @@
 
 int main()
 {
-	int i, j, num1, num2, num, count, greater;
+	int i, j, num1, num2, count, greater;
 	printf("Enter the 1st numbers: ");
 	scanf("%d", &num1);
 	printf("Enter the 2nd numbers: ");
 	scanf("%d", &num2);
-	num = abs(num2 - num1);
 	if(num1 < num2)
 	{
 		i = num1;

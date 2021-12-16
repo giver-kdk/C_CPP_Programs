@@ -1,3 +1,4 @@
+/* This program checks if the entered IP Address is valid one or not by returning 1 or 0*/
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -7,6 +8,7 @@ int isValid(char string[]);
 int main()
 {
     char string[50];
+    printf("Enter IP Address: ");
     scanf("%s", string);
     printf("%d", isValid(string));
 }
