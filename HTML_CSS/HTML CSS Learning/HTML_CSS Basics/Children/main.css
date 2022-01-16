@@ -1,8 +1,0 @@
-body>p									/*Selects 1st outer paragraph*/
-{
-	color: blue;
-}
-.section p								/*Selects children paragraph of section class*/
-{
-	color: red;
-}
