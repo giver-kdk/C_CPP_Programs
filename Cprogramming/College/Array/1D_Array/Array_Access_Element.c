@@ -1,3 +1,4 @@
+// Print array elements
 #include <stdio.h>
 #include <conio.h>
 
