@@ -44,11 +44,11 @@ int main() {
 		printf("Calculated value: %lf", chiSquare);
 		if(chiSquare <= tab){
 			printf("For aplha = %lf, Hypothesis is accepted.", alpha);
-			printf("Hence the given data are uniform.");
+			printf("Hence the given data are independant.");
 		}
 		else{
 			printf("For aplha = %lf, Hypothesis is rejected.", alpha);
-			printf("Hence the given data are not uniform.");
+			printf("Hence the given data are dependant.");
 		}
 	}
 	else printf("\nInvalid digit number.");
