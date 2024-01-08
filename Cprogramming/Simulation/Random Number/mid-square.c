@@ -27,4 +27,5 @@ int main()
 		printf("%d\n", random);
 		seed = random;
 	}
+	printf("\nName: Giver Khadka\tRoll no.: 05");
 }

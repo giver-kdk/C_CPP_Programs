@@ -62,20 +62,20 @@ int main()
 		}
 	}
 	// Here, Calculation and Output are independant
-	printf("\nQueue Representation: \n");
+	printf("\nQueuing System Representation: \n");
 	for(i = Qsys.maxLevel; i >= 0; i--)
 	{
 		for(j = 0; j < C[n - 1].SE; j++)
 		{
+			// Print Blocks
+			if(Qsys.matrix[i][j] == 0) printf("|  ");
+			else printf("|C%d", Qsys.matrix[i][j]);
+			if(j == C[n - 1].SE - 1) printf("|");
 			// Calculate Ti
 			if(i == 0 && Qsys.matrix[i][j] == 0) Ti[i]++;
 			else if(Qsys.matrix[i][j] != 0){
 				if(Qsys.matrix[i + 1][j] == 0) Ti[i + 1]++;
 			}
-			// Print Graph
-			if(Qsys.matrix[i][j] == 0) printf("|  ");
-			else printf("|C%d", Qsys.matrix[i][j]);
-			if(j == C[n - 1].SE - 1) printf("|");
 		}
 		printf("\n");
 	}
@@ -106,10 +106,9 @@ int main()
 	printf("\nSever Utilization = %.2f", rho);
 	// Proving Conservation Equation
 	lamda = ((float) n / (float) C[n - 1].SE);
-	printf("\nL = %.2f", L);
-	printf("\nLamda x W = %.2f", lamda*W);
+	printf("\nL = %.2f and Lamda x W = %.2f", L, lamda*W);
 	if(L - lamda * W <= ERROR) printf("\nHence, conservation equation was satisfied.");
 	else printf("\nHence, conservation equation was not satisfied.");
-
+	printf("\nName: Giver Khadka\tRoll no.: 05");
 	return 0;
 }

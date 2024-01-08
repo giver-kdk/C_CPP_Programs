@@ -43,5 +43,6 @@ int main() {
 		printf("\nFor aplha = %lf, Hypothesis is rejected.", alpha/2);
 		printf("\nHence the given data are dependant.");
 	}
+	printf("\nName: Giver Khadka\tRoll no.: 05");
     return 0;
 }

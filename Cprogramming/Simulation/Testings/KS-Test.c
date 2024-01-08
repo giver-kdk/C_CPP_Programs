@@ -11,11 +11,10 @@ struct KS {
 };
 
 void getdata(struct KS *ks) {
-    printf("How many numbers?:\n");
+    printf("How many numbers?:");
     scanf("%d", &ks->n);
-    printf("Enter %d numbers:\n", ks->n);
     for (ks->i = 0; ks->i < ks->n; ks->i++) {
-        printf("Enter %d number:\n", ks->i + 1);
+        printf("Enter %d number:", ks->i + 1);
         scanf("%f", &ks->numbers[ks->i]);
     }
 }
@@ -32,11 +31,10 @@ void BubbleSort(struct KS *ks) {
             }
         }
     }
-    printf("The numbers in ascending order is:\n");
+    printf("\nThe numbers in ascending order is:\n");
     for (i = 0; i < ks->n; i++) {
         printf("%.2f ", ks->numbers[i]);
     }
-    printf("\n");
 }
 
 void calculate(struct KS *ks) {
@@ -61,9 +59,9 @@ void display(struct KS *ks) {
             ks->Dminusmax = ks->Dminus[ks->i];
         }
     }
-    printf("D+ max: %.2f\n", ks->Dplusmax);
-    printf("D- max: %.2f\n", ks->Dminusmax);
-    printf("D = max(%.2f, %.2f) =", ks->Dplusmax, ks->Dminusmax);
+    printf("\nD+ max: %.2f", ks->Dplusmax);
+    printf("\nD- max: %.2f", ks->Dminusmax);
+    printf("\nD = max(%.2f, %.2f) =", ks->Dplusmax, ks->Dminusmax);
     if (ks->Dplusmax > ks->Dminusmax) {
         ks->D = ks->Dplusmax;
     } else {
@@ -73,13 +71,13 @@ void display(struct KS *ks) {
 }
 
 void conclusion(struct KS *ks) {
-    printf("Enter the value of alpha:\n");
+    printf("Enter the value of alpha:");
     scanf("%f", &alpha);
-    printf("Enter the tabulated value:\n");
+    printf("Enter the tabulated value:");
     scanf("%f", &ks->tabulatedD);
 
     if (ks->D <= ks->tabulatedD) {
-        printf("For alpha = %f, The hypothesis is accepted.\n", alpha);
+        printf("For alpha = %f, The hypothesis is accepted.", alpha);
 		printf("\nHence, given data are uniform.");
     } else {
         printf("For alpha = %f, The test is rejected.\n", alpha);
@@ -96,5 +94,6 @@ int main() {
     calculate(&ks1);
     display(&ks1);
     conclusion(&ks1);
+	printf("\nName: Giver Khadka\tRoll no.: 05");
     return 0;
 }

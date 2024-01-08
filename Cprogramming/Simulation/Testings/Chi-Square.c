@@ -6,6 +6,7 @@ int main() {
     int Oi[SIZE], Oi_sum = 0, n, i;
 	double Ei[SIZE], Oi_Ei[SIZE], unitEi, chiSquare = 0;
 	double alpha, tab;
+	// Use: n = 10
 	printf("Enter the number of intervals: ");
 	scanf("%d", &n);
 
@@ -37,5 +38,6 @@ int main() {
 		printf("For aplha = %lf, Hypothesis is rejected.", alpha);
 		printf("Hence the given data are not uniform.");
 	}
+	printf("\nName: Giver Khadka\tRoll no.: 05");
     return 0;
 }

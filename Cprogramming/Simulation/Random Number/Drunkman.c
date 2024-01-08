@@ -23,9 +23,11 @@ void right(){
 }
 
 int main(){
-    int upper = 99, lower = 0;
+    int n, upper = 99, lower = 0;
+	printf("Enter the number of steps: ");
+	scanf("%d", &n);
 	srand(time(0));                     //define 'srand' before calling 'rand'
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < n; i++)
     {
         int random = (rand() % (upper - lower + 1)) + lower;
         if(random >= 0 && random < 25) forward();
@@ -33,5 +35,6 @@ int main(){
         else if(random >= 50 && random < 75) left();
         else if(random >= 75 && random < 100) right();
     }
+	printf("\nName: Giver Khadka\tRoll no.: 05");
 	return 0;
 }

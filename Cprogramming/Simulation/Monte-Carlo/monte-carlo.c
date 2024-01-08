@@ -24,6 +24,6 @@ int main()
     }
     pi = 4 * (m / n);
     printf("The value of PI is: %f", pi);
-
+	printf("\nName: Giver Khadka\tRoll no.: 05");
 	return 0;
 }

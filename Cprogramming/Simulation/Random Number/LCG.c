@@ -42,5 +42,5 @@ int main()
 		printf("\nContinue? (Y/N): ");
 		scanf(" %c", &ch);
 	}
-
+	printf("\nName: Giver Khadka\tRoll no.: 05");
 }

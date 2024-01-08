@@ -44,13 +44,14 @@ int main() {
 		printf("Calculated value: %lf", chiSquare);
 		if(chiSquare <= tab){
 			printf("For aplha = %lf, Hypothesis is accepted.", alpha);
-			printf("Hence the given data are independant.");
+			printf("\nHence the given data are independant.");
 		}
 		else{
 			printf("For aplha = %lf, Hypothesis is rejected.", alpha);
-			printf("Hence the given data are dependant.");
+			printf("\nHence the given data are dependant.");
 		}
 	}
 	else printf("\nInvalid digit number.");
+	printf("\nName: Giver Khadka\tRoll no.: 05");
     return 0;
 }
