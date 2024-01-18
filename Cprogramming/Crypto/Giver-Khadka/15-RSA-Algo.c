@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio_ext.h>
+// #include <stdio_ext.h>
 
 int totient(int n)
 {

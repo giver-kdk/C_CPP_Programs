@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio_ext.h>
+// #include <stdio_ext.h>
 
 int do_check(char table[5][5], char k)
 {
