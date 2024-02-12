@@ -1,0 +1,7 @@
+- inputBuffer = 0
+- Read from left to right
+- if(; found) exit
+- if(EOF reached) inputBuffer = 1
+- Read from left to right
+- if(; found) exit
+- inputBuffer = 0
